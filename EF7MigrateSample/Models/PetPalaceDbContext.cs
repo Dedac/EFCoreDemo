@@ -15,12 +15,12 @@ namespace EF7NavigationSample.Models
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<StoreCustomer>(entity =>
-            //{
-            //    entity.HasKey(sc => new { sc.CustomerId, sc.StoreId });
-            //    entity.HasOne(sc => sc.Customer).WithMany(c => c.Stores).HasForeignKey(sc => sc.CustomerId);
-            //    entity.HasOne(sc => sc.Store).WithMany(s => s.Customers).HasForeignKey(sc => sc.StoreId);
-            //});
+            modelBuilder.Entity<StoreCustomer>(entity =>
+            {
+                entity.HasKey(sc => new { sc.CustomerId, sc.StoreId });
+                entity.HasOne(sc => sc.Customer).WithMany(c => c.Stores).HasForeignKey(sc => sc.CustomerId);
+                entity.HasOne(sc => sc.Store).WithMany(s => s.Customers).HasForeignKey(sc => sc.StoreId);
+            });
         }
     }
 }

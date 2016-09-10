@@ -8,9 +8,10 @@ using EF7NavigationSample.Models;
 namespace EF7MigrateSample.Migrations
 {
     [DbContext(typeof(PetPalaceDbContext))]
-    partial class PetPalaceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160520033437_StoreCustomer")]
+    partial class StoreCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")

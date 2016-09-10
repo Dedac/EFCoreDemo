@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace EF7NavigationSample.Models
+﻿namespace EF7NavigationSample.Models
 {
     public class StoreCustomer
     {

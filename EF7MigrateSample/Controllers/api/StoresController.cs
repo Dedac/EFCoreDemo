@@ -5,7 +5,6 @@ using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Entity;
 using EF7NavigationSample.Models;
-using System;
 
 namespace EF7MigrateSample.Controllers
 {
@@ -131,17 +130,17 @@ namespace EF7MigrateSample.Controllers
             return Ok(store);
         }
 
-        //[HttpPost("{id}/AddCustomer/{customerId}")]
-        //public async Task<IActionResult> AddCustomer(int id, int customerId)
-        //{
-        //    var store = await _context.Stores.Include(s => s.Customers).SingleAsync(m => m.Id == id);
+        [HttpPost("{id}/AddCustomer/{customerId}")]
+        public async Task<IActionResult> AddCustomer(int id, int customerId)
+        {
+            var store = await _context.Stores.Include(s => s.Customers).SingleAsync(m => m.Id == id);
 
-        //    store.Customers.Add(new StoreCustomer() { StoreId = id, CustomerId = customerId });
-        //    await _context.SaveChangesAsync();
+            store.Customers.Add(new StoreCustomer() { StoreId = id, CustomerId = customerId });
+            await _context.SaveChangesAsync();
 
-        //    var savedStore = await _context.Stores.Include(s => s.Customers).ThenInclude(c => c.Customer).SingleAsync(m => m.Id == id);
-        //    return Ok(savedStore);
-        //}
+            var savedStore = await _context.Stores.Include(s => s.Customers).ThenInclude(c => c.Customer).SingleAsync(m => m.Id == id);
+            return Ok(savedStore);
+        }
 
         protected override void Dispose(bool disposing)
         {
